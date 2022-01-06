@@ -30,7 +30,7 @@ class blockchain:
         checar_prova = False
 
         while checar_prova is False:
-            operacao_hash = hashlib.sha256(str(nova_prova**2 - prova_anterior**2).encode()).hexdigest()
+            operacao_hash = hashlib.sha256(str(nova_prova**10 - prova_anterior**10).encode()).hexdigest()
             if operacao_hash[:4] == '0000':
                 checar_prova = True
             else:
@@ -51,7 +51,7 @@ class blockchain:
                 return False
             prova_anterior = prova_anterior ['prova']
             prova = block['prova']
-            operacao_hash = hashlib.sha256(str(prova**2 - prova_anterior**2).encode()).hexdigest()
+            operacao_hash = hashlib.sha256(str(prova**10 - prova_anterior**10).encode()).hexdigest()
             if operacao_hash[:4] != '0000':                 #2 avalidacao
                 return False
             prova_anterior = block
